@@ -62,7 +62,7 @@ function loadPath(node) {
         element.appendChild(node);
         if (i < text.length) {
             let img = document.createElement('img');
-            img.src = './assets/down-arrow.svg';
+            img.src = 'assets/down-arrow.svg';
             element.appendChild(img);
         }
     }
