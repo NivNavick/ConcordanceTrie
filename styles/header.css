@@ -1,0 +1,52 @@
+#header {
+    font-size: 14px;
+    border-top: none !important;
+    height: 60px;
+    border-bottom: 1px solid #e5e5e5;
+    background: #a8a8a814;
+    font-weight: 200;
+}
+
+#header .logo {
+    float: left;
+    margin-top: 1px;
+    margin-left: 11px;
+    font-size: 30px;
+}
+
+#header .logo img {
+    margin-top: 10px;
+}
+
+#header .logo .title {
+    float: right;
+    margin-top: 5px;
+    margin-left: 9px;
+}
+
+.border-title {
+    width:30px;
+    margin-top:-10px;
+    margin-left:5px;
+    background:white;
+}
+
+#header-nav {
+    float: right;
+    margin-top: 5px;
+    margin-right: 10px;
+    font-size: 22px;
+}
+
+#header-nav div {
+    float: left;
+    padding: 8px;
+}
+
+#header-nav .nav-menu:hover{
+    color: #2196f3;
+}
+
+#header-nav .nav-menu{
+    cursor: pointer;
+}

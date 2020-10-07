@@ -1,0 +1,97 @@
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="assets/structure.svg" sizes="any" type="image/svg+xml">
+    <title>Niv Navick</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="trie/trieNode.js"></script>
+    <script src="trie/trie.js"></script>
+    <script src="utils/utils.js"></script>
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/views.css">
+    <link rel="stylesheet" href="styles/custom-file-input.css">
+    <script>
+        let list = new Trie();
+        let data;
+        window.addEventListener("load", function () {
+
+            document.getElementById('inputfile')
+                .addEventListener('change', function () {
+                    loadFile(this.files[0], () => {
+                        data = list.display();
+                    });
+                })
+        });
+    </script>
+</head>
+<body>
+<div id="header" data-heat-map="header">
+    <div class="logo" data-heat-map="logo">
+        <img src="assets/structure.svg" width="35px"/>
+        <div class="title">CS 10117 Data Structures Final Project - Concordance</div>
+    </div>
+    <div id="header-nav" data-heat-map="menu">
+        <div class="nav-menu">Niv Navick</div>
+        <div class="nav-menu">312164411</div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 data">
+            <div class="title">
+                <pre id="output"></pre>
+                <video id="no-data" style="outline: none;" width="100%" height="100%" controls>
+                    <source src="./assets/demo.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+        <div class="col-md-3 trie-nodes">
+            <div>
+                <button class="tab-button" onclick="changeTab('file');">File</button>
+                <button class="tab-button" onclick="changeTab('nodes');">Nodes</button>
+            </div>
+            <div class="title" id="file-tab">
+                <div>
+                    <input type="file" name="inputfile" class="inputfile" id="inputfile">
+                    <label for="inputfile">Choose a file</label>
+                </div>
+                <div>
+                    <button class="download-button"
+                            id="txt-download-button"
+                            onclick="downloadPlainText('ConcordanceNivNavick312164411.txt',data)"><img
+                            src="assets/text-file.svg"/></button>
+                </div>
+                <div>
+                    <button class="download-button"
+                            id="excel-download-button"
+                            onclick="downloadCSV('ConcordanceNivNavick312164411.csv',data)"><img
+                            src="assets/excel.svg"/></button>
+                </div>
+            </div>
+            <div class="title" id="nodes-tab">
+                <h3 id="nodes-tab-title"></h3>
+                <div id="single-node-path">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        Copyright 2020 by Niv Navick. All Rights Reserved.
+    </div>
+</div>
+
+</body>
+<html>

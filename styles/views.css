@@ -1,0 +1,71 @@
+
+
+.container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.container .trie-nodes {
+    text-align: center;
+    border: 1px solid #e5e5e5;
+    background: #a8a8a814;
+    min-height: 300px;
+    padding-bottom: 30px;
+}
+
+.container .data {
+    padding-top: 10px;
+    border: 1px solid #e5e5e5;
+    background: #a8a8a814;
+    min-height: 300px;
+    padding-bottom: 30px;
+    text-align: left;
+}
+
+.download-button {
+    border: none;
+    outline: none;
+    background: none;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    opacity: 0.3;
+    cursor: none;
+}
+
+
+.download-button img{
+    width: 60px;
+}
+
+.text-wrapping:hover {
+    background: #1f9cf6;
+    color:white;
+    border: 2px;
+}
+
+#single-node-path img{
+    margin-top: 10px;
+    width: 20px;
+}
+
+.tab-button {
+    outline: none;
+    margin-top: 20px;
+    margin-right: 0pc;
+    border: 0;
+    background: #03A9F4;
+    color: white;
+    font-size: 27px;
+    width: 120px;
+}
+
+.node-path {
+    margin-top: 10px;
+    border: 3px solid #0079ff;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background: white;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 26px;
+}
