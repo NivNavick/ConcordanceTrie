@@ -8,7 +8,7 @@ class TrieNode {
     }
 
     addPosition(pos) {
-        this.positions += pos.line + ':' + pos.linePosition + ',';
+        this.positions += '="'+pos.line + ':' + pos.linePosition + '",';
     }
 
     toString() {

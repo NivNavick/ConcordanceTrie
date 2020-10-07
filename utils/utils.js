@@ -3,7 +3,7 @@ function downloadPlainText(filename, data) {
         return;
     }
     let element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data.rawData));
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data.rawData.replace(/="/g, '"')));
     element.setAttribute('download', filename);
     element.style.display = 'none';
     document.body.appendChild(element);
