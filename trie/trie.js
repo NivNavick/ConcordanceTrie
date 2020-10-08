@@ -8,6 +8,7 @@ class Trie {
         return this.count === 0;
     }
 
+    //insert new word
     insert(word, i, j) {
         if (word.length === 0 || word === '') {
             return;
@@ -16,27 +17,35 @@ class Trie {
         let node = this.search(c);
 
         if (!node) {
+            //check correct insert index
+            //in order to remain sorted
             let i = this.checkPosition(c);
             node = this.insertAt(c, i);
         }
 
         if (word.length === 1) {
             node.isWord = true;
+            //insert new node/exists position
             node.addPosition({line: i, linePosition: j});
         }
+        //insert the next char level
         node.nodes.insert(word.slice(1), i, j);
     }
 
+    //find new element position
     checkPosition(element) {
         let val = element.charCodeAt(0);
+        //if trie is empty,position should be first
         if (this.isEmpty()) {
             return 0;
         } else if (this.getIndex(0).char.charCodeAt(0) > val) {
             return 0;
         } else if (this.getIndex(this.count - 1).char.charCodeAt(0) < val) {
+            //if element position should be last
             return this.count;
         }
 
+        //if element position should be somewhere
         let i = 0;
         while (this.getIndex(i).char.charCodeAt(0) < val) {
             i++;
@@ -91,6 +100,7 @@ class Trie {
         return node;
     }
 
+    //search by char
     search(c) {
         let tempNode = this.head;
         while (tempNode && tempNode.next) {
@@ -103,20 +113,30 @@ class Trie {
             tempNode : null;
     }
 
-
     clear() {
         this.head = null;
     }
 
-    display(consoleLog = true) {
+    //get all trie data
+    getAll() {
         let o = {
             data: {},
             rawData: ''
         };
-        this.getAllTrie(this.head, '', o,consoleLog);
+        this.getAllTrie(this.head, '', o,false);
         return o;
     }
 
+    //display all trie data to console
+    display() {
+        let o = {
+            data: {},
+            rawData: ''
+        };
+        this.getAllTrie(this.head, '', o,true);
+    }
+
+    //getting all trie data (helper)
     getAllTrie(node, word, obj, consoleLog = true) {
         if (node === null) {
             return;
@@ -133,8 +153,10 @@ class Trie {
 
         if (!node.nodes.isEmpty()) {
             let n = node.nodes.getIndex(0);
+            //get trie child nodes
             this.getAllTrie(n, word + node.char, obj,consoleLog);
         }
+        //get trie siblings nodes
         this.getAllTrie(node.next, word, obj,consoleLog);
     }
 
@@ -147,6 +169,7 @@ class Trie {
         return o;
     }
 
+    //getting a word with it's nodes route (helper)
     getWordRoute(word, dataObject, length) {
 
         if (!word || word === '') {
@@ -161,6 +184,7 @@ class Trie {
         }
 
         if (node) {
+            //getting deeper into the trie
             return node.nodes.getWordRoute(word.slice(1), dataObject, length);
         }
         return null;

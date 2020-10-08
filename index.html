@@ -32,7 +32,7 @@
                 .addEventListener('change', function () {
                     file = this.files[0];
                     loadFile(file, () => {
-                        data = trie.display(false);
+                        data = trie.getAll();
                     });
                 })
         });

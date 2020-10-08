@@ -179,7 +179,7 @@ function setMetadata(metadata) {
 
 function checkAvgFetchTime() {
     let t0 = performance.now();
-    trie.display(false);
+    trie.getAll();
     let t1 = performance.now();
     metadata.fetchAvgTime = (t1 - t0).toFixed(2);
     setMetadata(metadata);

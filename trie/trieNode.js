@@ -7,6 +7,7 @@ class TrieNode {
         this.nodes = new Trie();
     }
 
+    //words position in text
     addPosition(pos) {
         this.positions += '="'+pos.line + ':' + pos.linePosition + '",';
     }
