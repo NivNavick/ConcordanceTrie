@@ -31,13 +31,28 @@
     border-radius: 7px;
     min-width: 340px;
 }
+
 #header-nav .search-box input[type='text'] {
     outline: none;
     border: 0;
     background: transparent;
 }
+
 #header-nav .search-box .search-inner-box {
     padding: 0;
+}
+
+.line-number {
+    color: #9E9E9E;
+    cursor: default;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                     supported by Chrome, Edge, Opera and Firefox */
 }
 
 .download-button {

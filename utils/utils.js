@@ -133,6 +133,17 @@ function search(data = null) {
     wrapp(text, positions);
 }
 
+function lineNumberGenerator(i) {
+    i++;
+    const baseSpaceNumber = 6;
+    let length  = i.toString().length;
+    let lineNumber = (i)+'.';
+    for(let j=0;j<baseSpaceNumber-length;j++) {
+        lineNumber+=' ';
+    }
+    return lineNumber;
+}
+
 function wrapp(findString, positions = null) {
     if (positions) {
         //  positions = po
@@ -143,6 +154,7 @@ function wrapp(findString, positions = null) {
         return;
     }
     for (let i = 0; i < arrayOfLines.length; i++) {
+        out += '<span class="line-number">'+lineNumberGenerator(i)+'</span>';
         let words = arrayOfLines[i];
         let offset = 0;
         for (let j = 0; j < words.length; j++) {
