@@ -20,14 +20,12 @@
     <link rel="stylesheet" href="styles/views.css">
     <link rel="stylesheet" href="styles/custom-file-input.css">
     <script>
-        let list = new Trie();
-        let data;
         window.addEventListener("load", function () {
-
+            setMetadata(metadata);
             document.getElementById('inputfile')
                 .addEventListener('change', function () {
                     loadFile(this.files[0], () => {
-                        data = list.display();
+                        trie.display();
                     });
                 })
         });
@@ -40,6 +38,14 @@
         <div class="title">CS 10117 Data Structures Final Project - Concordance</div>
     </div>
     <div id="header-nav" data-heat-map="menu">
+        <div class="nav-menu" style="margin-right:35px;background: gainsboro;border-radius: 7px;">
+            <div style="padding: 0">
+                <img onclick="search('lorem');" src="assets/search.svg" width="20px"/>
+                <input id="search-box" placeholder="Search Word" type="text" style="outline: none;
+    border: 0;
+    background: transparent;"/>
+            </div>
+        </div>
         <div class="nav-menu">Niv Navick</div>
         <div class="nav-menu">312164411</div>
     </div>
@@ -61,6 +67,25 @@
             <div>
                 <button class="tab-button" onclick="changeTab('file');">File</button>
                 <button class="tab-button" onclick="changeTab('nodes');">Nodes</button>
+            </div>
+            <div class="metadata-section">
+                <h3>Metadata</h3>
+                <div class="metadata-info">
+                    <span>Insertion time:<span id="insertion-time"></span> ms</span>
+                </div>
+                <div class="metadata-info">
+                    <span>Fetch time:<span id="fetch-time"></span> ms</span>
+                </div>
+                <div class="metadata-info">
+                    <span>Avg Fetch time:<span id="avg-fetch-time"></span> ms</span>
+                    <span class="link" onclick="checkAvgFetchTime()">check</span>
+                </div>
+                <div class="metadata-info">
+                    <span>Words count:<span id="words-count"></span></span>
+                </div>
+                <div class="metadata-info">
+                    <span>File size:<span id="file-size"></span> kb</span>
+                </div>
             </div>
             <div class="title" id="file-tab">
                 <div>

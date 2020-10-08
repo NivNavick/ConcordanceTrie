@@ -1,9 +1,9 @@
 
-
 .container {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
 .container .trie-nodes {
     text-align: center;
     border: 1px solid #e5e5e5;
@@ -31,20 +31,41 @@
     cursor: none;
 }
 
-
-.download-button img{
+.download-button img {
     width: 60px;
 }
 
 .text-wrapping:hover {
     background: #1f9cf6;
-    color:white;
+    color: white;
     border: 2px;
 }
 
-#single-node-path img{
+#single-node-path img {
     margin-top: 10px;
     width: 20px;
+}
+
+.highlightTerm {
+    background: #ffc107;
+}
+
+.metadata-section {
+    margin-top: 15px;
+    padding-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+.metadata-section .metadata-info {
+    text-align: left;
+    margin-left: 15px;
+}
+
+.metadata-section .metadata-info .link {
+    color: #0079ff;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .tab-button {

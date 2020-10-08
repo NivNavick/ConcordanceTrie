@@ -65,7 +65,7 @@ class Trie {
                 curr = this.head;
                 let it = 0;
 
-                // iterate over the list to find
+                // iterate over the trie to find
                 // the position to insert
                 while (it < index) {
                     it++;
@@ -109,16 +109,16 @@ class Trie {
         this.head = null;
     }
 
-    display() {
+    display(consoleLog = true) {
         let o = {
             data: {},
             rawData: ''
         };
-        this.getAllTrie(this.head, '', o);
+        this.getAllTrie(this.head, '', o,consoleLog);
         return o;
     }
 
-    getAllTrie(node, word, obj) {
+    getAllTrie(node, word, obj, consoleLog = true) {
         if (node === null) {
             return;
         }
@@ -127,14 +127,16 @@ class Trie {
             let w = word + node.char;
             obj.rawData += w + ':' + node.positions + '\n';
             obj.data[w] = node.positions;
-            console.log(w + ':' + node.positions);
+            if (consoleLog) {
+                console.log(w + ':' + node.positions);
+            }
         }
 
         if (!node.nodes.isEmpty()) {
             let n = node.nodes.getIndex(0);
-            this.getAllTrie(n, word + node.char, obj);
+            this.getAllTrie(n, word + node.char, obj,consoleLog);
         }
-        this.getAllTrie(node.next, word, obj);
+        this.getAllTrie(node.next, word, obj,consoleLog);
     }
 
     getWord(word) {
@@ -142,25 +144,25 @@ class Trie {
             node: {},
             path: {}
         };
-        this.getWordRoute(word,o,word.length);
+        this.getWordRoute(word, o, word.length);
         return o;
     }
 
-    getWordRoute(word, dataObject,length) {
+    getWordRoute(word, dataObject, length) {
 
         if (!word || word === '') {
             return null;
         }
         let char = word.charAt(0);
         let node = this.search(char);
-        dataObject.path[length-(word.length-1)] = node;
+        dataObject.path[length - (word.length - 1)] = node;
         if (word && word.length === 1) {
             dataObject.node = node;
             return dataObject;
         }
 
         if (node) {
-            return node.nodes.getWordRoute(word.slice(1), dataObject,length);
+            return node.nodes.getWordRoute(word.slice(1), dataObject, length);
         }
         return null;
     }
@@ -172,7 +174,7 @@ class Trie {
         // to store current node
         let current;
 
-        // if list is Empty add the
+        // if trie is Empty add the
         // element and make it head
         if (this.head === null)
             this.head = node;
@@ -180,7 +182,7 @@ class Trie {
             current = this.head;
 
             // iterate to the end of the
-            // list
+            // trie
             while (current.next) {
                 current = current.next;
             }
