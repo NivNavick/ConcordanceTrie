@@ -8,6 +8,7 @@ let metadata = {
 
 let text;
 let trie = new Trie();
+let data;
 
 
 function downloadPlainText(filename, data) {
