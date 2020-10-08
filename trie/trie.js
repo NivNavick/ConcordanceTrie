@@ -15,7 +15,6 @@ class Trie {
         let c = word.charAt(0);
         let node = this.search(c);
 
-
         if (!node) {
             let i = this.checkPosition(c);
             node = this.insertAt(c, i);
@@ -52,9 +51,9 @@ class Trie {
         else {
             // creates a new node
             let node = new TrieNode(element);
-            let curr, prev;
+            let current, prev;
 
-            curr = this.head;
+            current = this.head;
 
             // add the element to the
             // first index
@@ -62,19 +61,19 @@ class Trie {
                 node.next = this.head;
                 this.head = node;
             } else {
-                curr = this.head;
-                let it = 0;
+                current = this.head;
+                let counter = 0;
 
                 // iterate over the trie to find
                 // the position to insert
-                while (it < index) {
-                    it++;
-                    prev = curr;
-                    curr = curr.next;
+                while (counter < index) {
+                    counter++;
+                    prev = current;
+                    current = current.next;
                 }
 
                 // adding an element
-                node.next = curr;
+                node.next = current;
                 prev.next = node;
             }
             this.count++;
@@ -165,32 +164,5 @@ class Trie {
             return node.nodes.getWordRoute(word.slice(1), dataObject, length);
         }
         return null;
-    }
-
-    insertLast(element) {
-        // creates a new node
-        let node = new TrieNode(element);
-
-        // to store current node
-        let current;
-
-        // if trie is Empty add the
-        // element and make it head
-        if (this.head === null)
-            this.head = node;
-        else {
-            current = this.head;
-
-            // iterate to the end of the
-            // trie
-            while (current.next) {
-                current = current.next;
-            }
-
-            // add node
-            current.next = node;
-        }
-        this.count++;
-        return node;
     }
 }

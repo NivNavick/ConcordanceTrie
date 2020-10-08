@@ -30,8 +30,9 @@
             setMetadata(metadata);
             document.getElementById('inputfile')
                 .addEventListener('change', function () {
-                    loadFile(this.files[0], () => {
-                        data = trie.display();
+                    file = this.files[0];
+                    loadFile(file, () => {
+                        data = trie.display(false);
                     });
                 })
         });
@@ -44,12 +45,11 @@
         <div class="title">CS 10117 Data Structures Final Project - Concordance</div>
     </div>
     <div id="header-nav" data-heat-map="menu">
-        <div class="nav-menu" style="margin-right:35px;background: gainsboro;border-radius: 7px;">
-            <div style="padding: 0">
+        <div class="nav-menu search-box">
+            <div class="search-inner-box">
                 <img onclick="search('lorem');" src="assets/search.svg" width="20px"/>
-                <input id="search-box" placeholder="Search Word" type="text" style="outline: none;
-    border: 0;
-    background: transparent;"/>
+                <input id="search-input" placeholder="Search Word" type="text"/>
+                <span id="search-results-number"></span>
             </div>
         </div>
         <div class="nav-menu">Niv Navick</div>

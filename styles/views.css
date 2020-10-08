@@ -8,17 +8,36 @@
     text-align: center;
     border: 1px solid #e5e5e5;
     background: #a8a8a814;
-    min-height: 300px;
     padding-bottom: 30px;
+    min-height: 700px;
+    max-height: 700px;
+    overflow-y: auto;
 }
 
 .container .data {
     padding-top: 10px;
     border: 1px solid #e5e5e5;
     background: #a8a8a814;
-    min-height: 300px;
+    min-height: 700px;
     padding-bottom: 30px;
+    max-height: 700px;
+    overflow-y: auto;
     text-align: left;
+}
+
+#header-nav .search-box {
+    margin-right: 35px;
+    background: gainsboro;
+    border-radius: 7px;
+    min-width: 340px;
+}
+#header-nav .search-box input[type='text'] {
+    outline: none;
+    border: 0;
+    background: transparent;
+}
+#header-nav .search-box .search-inner-box {
+    padding: 0;
 }
 
 .download-button {

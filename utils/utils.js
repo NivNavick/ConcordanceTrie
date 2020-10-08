@@ -9,6 +9,8 @@ let metadata = {
 let text;
 let trie = new Trie();
 let data;
+let arrayOfLines = [];
+let file;
 
 
 function downloadPlainText(filename, data) {
@@ -61,11 +63,27 @@ function changeElementVisibility(id, hidden) {
 }
 
 function loadPath(node) {
-    let text = node.innerText;
+    let text;
+    let path;
+    let fromSearch;
+    if (node.innerText) {
+        text = node.innerText;
+        fromSearch = true;
+        document.getElementById('search-input').value = text;
+
+    } else {
+        text = node;
+    }
+
+
     let t0 = performance.now();
-    let path = trie.getWord(text).path;
+    let wordNode = trie.getWord(text);
     let t1 = performance.now();
     metadata.fetchTime = (t1 - t0).toFixed(2);
+    path = wordNode.path;
+    if (fromSearch) {
+        search(wordNode.node);
+    }
     setMetadata(metadata);
     let element = document.getElementById('single-node-path');
     let titleElement = document.getElementById('nodes-tab-title');
@@ -87,16 +105,21 @@ function loadPath(node) {
 }
 
 
-function search() {
-    let term = document.getElementById('search-box').value;
-    let t0 = performance.now();
-    let node = trie.getWord(term).node;
-    let t1 = performance.now();
-    metadata.fetchTime = (t1 - t0).toFixed(2);
+function search(data = null) {
+    let node;
+    if (!data.char) {
+        let term = document.getElementById('search-input').value;
+        let t0 = performance.now();
+        node = trie.getWord(term).node;
+        let t1 = performance.now();
+        metadata.fetchTime = (t1 - t0).toFixed(2);
+        setMetadata(metadata);
+    } else {
+        node = data;
+    }
     if (!node) {
         return;
     }
-    setMetadata(metadata);
 
     let positions = node.positions
         .replace(/=|"/g, '')
@@ -106,6 +129,7 @@ function search() {
             return {line: parseInt(t[0]), linePos: parseInt(t[1])};
         });
 
+    document.getElementById('search-results-number').innerText = '(' + positions.length + ')';
     wrapp(text, positions);
 }
 
@@ -118,13 +142,8 @@ function wrapp(findString, positions = null) {
     if (text.indexOf(findString) === -1) {
         return;
     }
-    let parts = text.split(/\r?\n/);
-    for (let i = 0; i < parts.length; i++) {
-        let words = parts[i].split(' ');
-        /*  let emptyIndex = words.indexOf("");
-          if (emptyIndex !== -1) {
-              words.splice(emptyIndex, 1);
-          }*/
+    for (let i = 0; i < arrayOfLines.length; i++) {
+        let words = arrayOfLines[i];
         let offset = 0;
         for (let j = 0; j < words.length; j++) {
 
@@ -148,9 +167,6 @@ function wrapp(findString, positions = null) {
         out += '</br>';
     }
     target.innerHTML = out;
-    $(() => {
-        $('[data-toggle="popover"]').popover()
-    })
 }
 
 function setMetadata(metadata) {
@@ -163,7 +179,7 @@ function setMetadata(metadata) {
 
 function checkAvgFetchTime() {
     let t0 = performance.now();
-    let o = trie.display(false);
+    trie.display(false);
     let t1 = performance.now();
     metadata.fetchAvgTime = (t1 - t0).toFixed(2);
     setMetadata(metadata);
@@ -181,7 +197,7 @@ function loadFile(file, cb) {
             e.style.opacity = 1;
             e.style.cursor = 'pointer';
         });
-        let arrayOfLines = temp.split("\n").map((line) => line.trim().split(' '));
+        arrayOfLines = temp.split("\n").map((line) => line.trim().split(' '));
 
         let t0 = performance.now();
         for (let i = 0; i < arrayOfLines.length; i++) {
@@ -195,7 +211,7 @@ function loadFile(file, cb) {
         let t1 = performance.now();
         metadata.insertionTime = (t1 - t0).toFixed();
         metadata.wordsCount = temp.length;
-        metadata.fileSize = document.getElementById("inputfile").files[0].size.toFixed() / 1000;
+        metadata.fileSize = file.size.toFixed() / 1000;
         text = temp;
         setMetadata(metadata);
         wrapp(temp);
@@ -204,4 +220,4 @@ function loadFile(file, cb) {
     };
 
     fr.readAsText(file);
-};
+}
