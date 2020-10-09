@@ -109,6 +109,7 @@ function search(data = null) {
     let node;
     if (!data.char) {
         let term = document.getElementById('search-input').value;
+        loadPath(term);
         let t0 = performance.now();
         node = trie.getWord(term).node;
         let t1 = performance.now();
