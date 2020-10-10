@@ -1,4 +1,5 @@
 const REPLACE_SPECIAL_CHARS_REGEX = /[.,\/#!$%\^&\*;:\[\]"'•|{}<>=\-_`~()]/g;
+const REPLACE_MULTIPLE_SPACES_REGEX=/  +/g;
 const REPLACE_POSITIONS_CHARS_REGEX = /=|"/g;
 
 let metadata = {
@@ -114,7 +115,7 @@ function initTrie(arrayOfLines) {
 
 function removeSpecialChars(text) {
     text = text.replace(REPLACE_SPECIAL_CHARS_REGEX, ' ');
-    text = text.replace(/  +/g, ' ');
+    text = text.replace(REPLACE_MULTIPLE_SPACES_REGEX, ' ');
     text = text.toLowerCase();
     return text;
 }
