@@ -21,20 +21,16 @@
 
     <script src="trie/trieNode.js"></script>
     <script src="trie/trie.js"></script>
+    <script src="utils/dom.js"></script>
+    <script src="utils/downloader.js"></script>
     <script src="utils/utils.js"></script>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/views.css">
     <link rel="stylesheet" href="styles/custom-file-input.css">
     <script>
         window.addEventListener("load", function () {
-            setMetadata(metadata);
-            document.getElementById('inputfile')
-                .addEventListener('change', function () {
-                    file = this.files[0];
-                    loadFile(file, () => {
-                        data = trie.getAll();
-                    });
-                })
+            initElements();
+            initEventListeners();
         });
     </script>
 </head>
@@ -77,20 +73,20 @@
             <div class="metadata-section">
                 <h3>Metadata</h3>
                 <div class="metadata-info">
-                    <span>Insertion time:<span id="insertion-time"></span> ms</span>
+                    <span>Insertion time:<span id="insertion-time">0</span> ms</span>
                 </div>
                 <div class="metadata-info">
-                    <span>Fetch time:<span id="fetch-time"></span> ms</span>
+                    <span>Fetch time:<span id="fetch-time">0</span> ms</span>
                 </div>
                 <div class="metadata-info">
-                    <span>Avg Fetch time:<span id="avg-fetch-time"></span> ms</span>
+                    <span>Avg Fetch time:<span id="avg-fetch-time">0</span> ms</span>
                     <span class="link" onclick="checkAvgFetchTime()">check</span>
                 </div>
                 <div class="metadata-info">
-                    <span>Words count:<span id="words-count"></span></span>
+                    <span>Words count:<span id="words-count">0</span></span>
                 </div>
                 <div class="metadata-info">
-                    <span>File size:<span id="file-size"></span> kb</span>
+                    <span>File size:<span id="file-size">0</span> kb</span>
                 </div>
             </div>
             <div class="title" id="file-tab">

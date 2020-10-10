@@ -123,7 +123,7 @@ class Trie {
             data: {},
             rawData: ''
         };
-        this.getAllTrie(this.head, '', o,false);
+        this.getAllTrie(this.head, '', o, false);
         return o;
     }
 
@@ -133,7 +133,7 @@ class Trie {
             data: {},
             rawData: ''
         };
-        this.getAllTrie(this.head, '', o,true);
+        this.getAllTrie(this.head, '', o, true);
     }
 
     //getting all trie data (helper)
@@ -154,10 +154,10 @@ class Trie {
         if (!node.nodes.isEmpty()) {
             let n = node.nodes.getIndex(0);
             //get trie child nodes
-            this.getAllTrie(n, word + node.char, obj,consoleLog);
+            this.getAllTrie(n, word + node.char, obj, consoleLog);
         }
         //get trie siblings nodes
-        this.getAllTrie(node.next, word, obj,consoleLog);
+        this.getAllTrie(node.next, word, obj, consoleLog);
     }
 
     getWord(word) {
@@ -177,7 +177,9 @@ class Trie {
         }
         let char = word.charAt(0);
         let node = this.search(char);
-        dataObject.path[length - (word.length - 1)] = node;
+        if (node !== null) {
+            dataObject.path[length - (word.length - 1)] = node;
+        }
         if (word && word.length === 1) {
             dataObject.node = node;
             return dataObject;
