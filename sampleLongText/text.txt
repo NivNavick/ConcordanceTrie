@@ -1,6 +1,35 @@
 •	Niv |
 •	navick
 
+
+קונקורדנציה היא רשימה אלפביתית של כל המילים
+(או המילים העיקריות) שבשימוש ביצירה מסוימת בצירוף מראה מקום של כל מילה.
+קונקורדנציה נהוג לחבר לקורפוס, ספר חשוב, מפורסם או נפוץ מאוד, או למכלול יצירתו של סופר או משורר.
+הקונקורדנציה היא כלי עזר ראשון במעלה לחוקרים את היצירה הנידונה וללומדיה.
+ הקונקורדנציה הראשונה נתחברה לתנ"ך, והיא נכתבה על ידי נזירים וכמרים נוצרים,
+ בין השאר ככלי עזר לוויכוחים בין-דתיים (ואף תורגמה לעברית בדיוק למטרות הללו). בעת החדשה השתמשו בה גם לגבי יצירות נוספות.
+
+
+الفهرس الأبجدي هو قائمة أبجدية للكلمات
+الرئيسية المستخدمة في كتاب أو هيئة عمل، تسرد كل مثيل لكل
+ كلمة مع سياقها المباشر.  تم تجميع الفهرس الأبجدي
+ فقط للأعمال ذات الأهمية الخاصة، مثل الفيدا ،الكتاب المقدس ،
+ القرآن أو أعمال شكسبير،
+  جيمس جويس أوالمؤلفين اللاتينيين واليونانيين الكلاسيكيين بسبب الوقت والصعوبة، و
+ المصاريف التي ينطوي عليها إنشاء فهرس  أبجدي   في عصر ما قبل الكمبيوتر .
+
+
+ मुक्त ज्ञानकोश विकिपीडिया से
+ Jump to navigationJump to search
+ किसी ग्रन्थ या किसी अन्य कृति में आये हुए प्रमुख शब्दों को वर्णक्रम में या किसी अन्य क्रम में सजाकर
+ निर्मित सूची को अनुक्रमणिका या कॉन्कॉर्डैंस (concordance)
+ कहते हैं। कम्यूटर प्रोग्रामों के आ जाने से यह काम अपेक्षाकृत बहुत सरल हो गया है किन्तु इसके पहले बहुत
+  महत्वपूर्ण कृतियों (जैसे वेद, बाइबल, कुरान, शेक्सपीयर की
+  कृतियाँ आदि) की ही अनुक्रमणिका निर्मित किये जा सके थे क्योंकि इसमें समय और खर्च बहुत लगता
+  था और काम बहुत कठिन था।
+
+ विश्व की पहली अनुक्रमणिका 'वल्गेट बाइबल' (Vulgate Bible) की बनी थी जिसे सन्त चर के हग (Hugh of St Cher) (मृत्यु 1262) ने ५०० भिक्षुओं की सहायता से संकलित किया था। सन् 1448 में रब्बी मॉर्डेकाई नाथन (Rabbi Mordecai Nathan) ने हिब्रू भाषा की बाइबल की अनुक्रमणिका बनायी जिसे बनाने में दस वर्ष लगे।
+
          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ex tellus, blandit ut consectetur eu, mattis ut lorem. Quisque ac sollicitudin odio, vitae suscipit eros. Proin maximus arcu at elit efficitur, id maximus nunc sagittis. Sed placerat turpis et nisi dapibus tempor. Quisque in odio quis dui elementum condimentum vel in nibh. Morbi sollicitudin eros quis luctus dignissim. Sed tincidunt enim maximus mauris rhoncus, in luctus mauris aliquet.
 
 Nunc fermentum porttitor purus, eget sodales dolor aliquam eget. Quisque sed tempor ante. Pellentesque feugiat faucibus lectus at tincidunt. Suspendisse facilisis arcu augue, sit amet fringilla orci pharetra et. Morbi sagittis blandit elit, eget sagittis mi cursus in. Aliquam erat volutpat. Proin vitae est urna. Donec vel nulla ligula. Fusce ac dignissim magna. Quisque sit amet urna faucibus, consequat lorem a, suscipit nisl.
