@@ -55,6 +55,11 @@
                                      supported by Chrome, Edge, Opera and Firefox */
 }
 
+#no-data {
+    outline: none;
+    margin-top: 10%;
+}
+
 .download-button {
     border: none;
     outline: none;
