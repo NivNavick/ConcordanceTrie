@@ -113,7 +113,8 @@ function initTrie(arrayOfLines) {
 }
 
 function removeSpecialChars(text) {
-    text = text.replace(REPLACE_SPECIAL_CHARS_REGEX, '');
+    text = text.replace(REPLACE_SPECIAL_CHARS_REGEX, ' ');
+    text = text.replace(/  +/g, ' ');
     text = text.toLowerCase();
     return text;
 }
